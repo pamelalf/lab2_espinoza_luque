@@ -27,7 +27,7 @@ public class AreaController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @GetMapping(value = {"/lista", ""})
+    @GetMapping(value = {"/listar", ""})
     public String lista(Model model) {
 
         List<Area> lista = areaRepository.findAll();
@@ -65,7 +65,7 @@ public class AreaController {
             attr.addFlashAttribute("msg", "Usuario actualizado exitosamente");
         }
         areaRepository.save(area);
-        return "redirect:/area/lista";
+        return "redirect:/area/listar";
 
     }
 
@@ -79,7 +79,7 @@ public class AreaController {
             areaRepository.deleteById(id);
             attr.addFlashAttribute("msg", "Area eliminada exitosamente");
         }
-        return "redirect:/area/lista";
+        return "redirect:/area/listar";
 
     }
 }

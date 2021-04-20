@@ -53,9 +53,6 @@ public class UsuarioController {
 
    @PostMapping("/guardar")
     public String guardarUser(Usuario usuario,  RedirectAttributes ra){
-
-
-        usuarioRepository.save(usuario);
        Optional<Usuario> usuarioOptional= usuarioRepository.findById(usuario.getCorreo());
        if(usuarioOptional.isPresent()){
            ra.addFlashAttribute("msgCreate","Usuario creado exitosamente");
@@ -64,6 +61,12 @@ public class UsuarioController {
        }
        usuarioRepository.save(usuario);
 
+       return "redirect:/usuario/listar";
+   }
+
+   @GetMapping("/borrar")
+    public String borrar (Usuario usuario){
+       usuarioRepository.delete(usuario);
        return "redirect:/usuario/listar";
    }
 

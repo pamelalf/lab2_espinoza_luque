@@ -12,17 +12,9 @@ import javax.persistence.Table;
 public class Usuario {
     @Id
     private String correo;
-    private int idarea;
     private String nombres;
     private String apellidos;
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+    private int idarea;
 
     public int getIdarea() {
         return idarea;
@@ -30,6 +22,14 @@ public class Usuario {
 
     public void setIdarea(int idarea) {
         this.idarea = idarea;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getNombres() {

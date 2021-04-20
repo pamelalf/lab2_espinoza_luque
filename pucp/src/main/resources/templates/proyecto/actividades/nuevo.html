@@ -2,16 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title><!DOCTYPE html>
-        <html lang="en" xmlns:th="http://www.thymeleaf.org">
-        <head>
-            <meta charset="UTF-8">
-            <title>Editar Proyecto</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        </head>
+    <title>Lista de Proyectos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</head>
 <body class="container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse">
@@ -23,7 +19,7 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-header"><h2 th:text="|Editar Usuario|"></h2></div>
+        <div class="card-header"><h2 th:text="|Nueva Actividad|"></h2></div>
         <div class="card-body">
             <form method="post" th:action="@{/actividad/guardar}">
                 <div class="form-row">
@@ -42,7 +38,7 @@
 
                     <div class="col-md-8 mb-4">
                         <div class="form-group">
-                            <label class="small mb-1">Area</label>
+                            <label class="small mb-1">Usuario Owner</label>
                             <select name="usuario_owner"
                                     id="correo" >
                                 <option th:each="user : ${listaUsers}"
@@ -55,9 +51,9 @@
                     <div class="col-md-8 mb-4">
                         <div class="form-group">
                             <label for="estado" class="small mb-1">Estado</label>
-                            <select class="form-select form-select mb-3" name="estado" name="estado" id="estado">
+                            <select class="form-select form-select mb-3"  name="estado" id="estado">
                                 <option value="true">Finalizado</option>
-                                <onptio value="false">Pendientte</onptio>
+                                <option value="false">Pendientte</option>
                             </select>
                         </div>
                     </div>
@@ -65,7 +61,7 @@
 
                     <div class="form-group mt-4">
                         <input class="btn btn-primary" type="submit" value="Create">
-                        <a class="btn btn-warning"  th:href="@{/actividad/lista}">Regresar</a>
+                        <a class="btn btn-warning"  th:href="@{/actividad/listar}">Regresar</a>
                     </div>
                 </div>
             </form>

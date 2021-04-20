@@ -24,13 +24,13 @@ public class UsuarioController {
     AreaRepository areaRepository;
 
    @GetMapping("/lista")
-    public String listaUser(Model model){
+    public String lista(Model model){
        model.addAttribute("listaUser",usuarioRepository.findAll());
        return "proyecto/usuario/lista";
    }
 
    @GetMapping("/editar")
-    public String editarUser(Model model, @RequestParam("id") String id){
+    public String editar(Model model, @RequestParam("id") String id){
        Optional<Usuario> usuarioOptional= usuarioRepository.findById(id);
        if(usuarioOptional.isPresent()){
             model.addAttribute("listaAreas",areaRepository.findAll());
@@ -44,7 +44,7 @@ public class UsuarioController {
    }
 
    @PostMapping("/guardar")
-    public String guardarUser(Usuario usuario, Area area){
+    public String guardar(Usuario usuario, Area area){
         usuarioRepository.save(usuario);
 
 

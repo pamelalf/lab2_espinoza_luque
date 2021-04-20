@@ -1,21 +1,19 @@
 package com.example.pucp.Entity;
 
-import org.springframework.stereotype.Repository;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "actividades")
-public class Actividad  {
+public class Actividad {
     @Id
     private int idactividad;
-    private String nombreActividad;
+    private String nombreactividad;
     private String descripcion;
     private int idproyecto;
     private String usuario_owner;
-    private String peso;
+    private double peso;
     private boolean estado;
 
 
@@ -27,12 +25,12 @@ public class Actividad  {
         this.idactividad = idactividad;
     }
 
-    public String getNombreActividad() {
-        return nombreActividad;
+    public String getNombreactividad() {
+        return nombreactividad;
     }
 
-    public void setNombreActividad(String nombreActivida) {
-        this.nombreActividad = nombreActivida;
+    public void setNombreactividad(String nombreactividad) {
+        this.nombreactividad = nombreactividad;
     }
 
     public String getDescripcion() {
@@ -59,11 +57,11 @@ public class Actividad  {
         this.usuario_owner = usuario_owner;
     }
 
-    public String getPeso() {
+    public double getPeso() {
         return peso;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
 

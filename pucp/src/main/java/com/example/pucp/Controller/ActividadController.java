@@ -1,12 +1,10 @@
 package com.example.pucp.Controller;
 
 import com.example.pucp.Entity.Actividad;
-import com.example.pucp.Entity.Usuario;
 import com.example.pucp.Repository.ActividadRepository;
 import com.example.pucp.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/actividad")
@@ -26,7 +23,7 @@ public class ActividadController {
 
     @GetMapping("/lista")
     public String lista(Model model){
-        model.addAttribute("listaActividades",actividadRepository.findAll());
+        model.addAttribute("listaAc", actividadRepository.findAll());
 
         return "proyecto/actividades/lista";
     }
@@ -35,7 +32,7 @@ public class ActividadController {
     public String nuevo(Model model){
         model.addAttribute("listaActividades",actividadRepository.findAll());
         model.addAttribute("listaUsers",usuarioRepository.findAll());
-        return "proyecto/actividad/nuevo";
+        return "proyecto/actividades/nuevo";
     }
 
     @GetMapping("/editar")

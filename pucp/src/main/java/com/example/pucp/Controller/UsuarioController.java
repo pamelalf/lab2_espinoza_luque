@@ -53,9 +53,6 @@ public class UsuarioController {
 
    @PostMapping("/guardar")
     public String guardarUser(Usuario usuario,  RedirectAttributes ra){
-
-
-        usuarioRepository.save(usuario);
        Optional<Usuario> usuarioOptional= usuarioRepository.findById(usuario.getCorreo());
        if(usuarioOptional.isPresent()){
            ra.addFlashAttribute("msgCreate","Usuario creado exitosamente");

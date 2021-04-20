@@ -9,6 +9,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 </head>
 <body class="container">
+<div th:if="${msgCreate != null}" th:text="${msgCreate}" class="alert alert-success" role="alert"></div>
+<div th:if="${msgEdit != null}" th:text="${msgEdit}" class="alert alert-warning" role="alert"></div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse">
         <a class="navbar-brand" href="/proyecto/listar">Proyectos</a>
@@ -16,25 +18,25 @@
         <a class="navbar-brand" href="/area/listar">Areas</a>
     </div>
 </nav>
-<h2>Lista de Proyectos</h2>
-<a class="btn btn-primary mt-4 mb-4" href="/usuario/agregar">Nuevo Proyecto</a>
+<h2>Lista de Usuarios</h2>
+<a class="btn btn-primary mt-4 mb-4" href="/usuario/agregar">Nuevo Usuario</a>
 <table class="table table-sm">
     <tr>
         <th>#</th>
-        <th>Correo del usuario</th>
-        <th>Nombre del usuario</th>
-        <th>Apellido del usuario</th>
+        <th>Correo </th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
         <th></th>
         <th></th>
     </tr>
     <tr th:each="user, info : ${listaUser}">
         <td th:text="${info.index +1}"></td>
-        <td  th:text="${user.getCorreo()}"></td>
-        <td th:text="${user.getNombre()}"></td>
-        <td th:text="${user.getApellido()}"></td>
-        <td><a class="btn btn-info" th:href="@{'/usuario/editar?id='+ ${user.getCorreo()}}"></a></td>
+        <td  th:text="${user.correo}"></td>
+        <td th:text="${user.getNombres()}"></td>
+        <td th:text="${user.getApellidos()}"></td>
+        <td><a class="btn btn-info" th:href="@{'/usuario/editar?id='+ ${user.getCorreo()}}">Editar</a></td>
 
-        <td><a class="btn btn-danger" th:href="@{'/usuario/borrar?id='+ ${user.getCorreo()}}"></a></td>
+        <td><a class="btn btn-danger" th:href="@{'/usuario/borrar?id='+ ${user.getCorreo()}}">Borrar</a></td>
     </tr>
 </table>
 </body>

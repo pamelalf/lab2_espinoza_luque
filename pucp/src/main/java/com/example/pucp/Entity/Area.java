@@ -9,15 +9,15 @@ public class Area {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idarea")
-    private int id;
+    private int idArea;
     private String nombrearea;
 
-    public int getId() {
-        return id;
+    public int getIdArea() {
+        return idArea;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdArea(int idArea) {
+        this.idArea = idArea;
     }
 
     public String getNombrearea() {

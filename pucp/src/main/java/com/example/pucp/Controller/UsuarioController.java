@@ -64,6 +64,12 @@ public class UsuarioController {
        return "redirect:/usuario/listar";
    }
 
+   @GetMapping("/borrar")
+    public String borrar (Usuario usuario){
+       usuarioRepository.delete(usuario);
+       return "redirect:/usuario/listar";
+   }
+
 
 
 

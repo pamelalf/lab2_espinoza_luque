@@ -36,7 +36,7 @@
                             <label class="small mb-1">Area</label>
                             <select id="idarea" name="idarea" >
                                 <option th:each="area : ${listaAreas}"
-                                        th:value="${area.getId()}"
+                                        th:value="${area.getIdArea()}"
                                         th:text="${area.getNombrearea()}"
                                 ></option>
                             </select>

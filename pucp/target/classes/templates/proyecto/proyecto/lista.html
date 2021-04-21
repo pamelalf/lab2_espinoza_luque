@@ -17,17 +17,26 @@
     </div>
 </nav>
 <h2>Lista de Proyectos</h2>
-<a class="btn btn-primary mt-4 mb-4" href="/proyecto/agregar">Nuevo Proyecto</a>
+<a class="btn btn-primary mt-4 mb-4" href="/usuario/agregar">Lista Proyectos</a>
+<div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
 <table class="table table-sm">
     <tr>
         <th>#</th>
-        <th>Nombre del proyecto</th>
+        <th>Nombre Proyecto </th>
         <th>Responsable</th>
+
         <th></th>
         <th></th>
     </tr>
-    <tr th:each="proyecto, info : ${listaProyectos}">
-  </tr>
+    <tr th:each="p, info : ${listaP}">
+        <td th:text="${info.index +1}"></td>
+        <td  th:text="${p.getNombreproyecto()}"></td>
+        <td th:text="${p.getUsuario_owner()}"></td>
+
+        <td><a class="btn btn-info" th:href="@{'/proyecto/editar?id='+ ${p.getIdproyecto()}}">Editar</a></td>
+
+        <td><a class="btn btn-danger" th:href="@{'/proyecto/borrar?id='+ ${p.getIdproyecto()}}">Borrar</a></td>
+    </tr>
 </table>
 </body>
 </html>

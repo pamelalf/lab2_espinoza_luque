@@ -25,53 +25,49 @@ public class ActividadController {
     UsuarioRepository usuarioRepository;
 
     @GetMapping("/listar")
-    public String lista(Model model){
+    public String lista(Model model) {
         model.addAttribute("listaAc", actividadRepository.findAll());
 
         return "proyecto/actividades/lista";
     }
 
     @GetMapping("/agregar")
-    public String nuevo(Model model){
-        model.addAttribute("listaActividades",actividadRepository.findAll());
-        model.addAttribute("listaUsers",usuarioRepository.findAll());
+    public String nuevo(Model model) {
+        model.addAttribute("listaActividades", actividadRepository.findAll());
+        model.addAttribute("listaUsers", usuarioRepository.findAll());
         return "proyecto/actividades/nuevo";
     }
 
     @GetMapping("/editar")
-    public String editar(Model model, @RequestParam("id") int id){
-        System.out.println("El id es : " + id);
+    public String editar(Model model, @RequestParam("idact") int idact, @RequestParam("idpro") int idpro) {
 
-        Optional<Actividad> actividadOptional=actividadRepository.findById(id);
-        if(actividadOptional.isPresent()){
-            Actividad actividad= actividadOptional.get();
-            System.out.println(actividad.getNombreactividad());
-            List<Usuario> usuarioList=usuarioRepository.findAll();
-            System.out.println(actividad.getNombreactividad());
-            model.addAttribute("listaUsuarios",usuarioRepository.findAll());
-            model.addAttribute("actividad",actividadOptional.get());
 
+        Optional<Actividad> optionalActividad = actividadRepository.findById(idact);
+        if(optionalActividad.isPresent()){
+            Actividad actividad = optionalActividad.get();
+            model.addAttribute("actividad", actividad);
             return "proyecto/actividades/editar";
         }else{
-            return "redirect:/actividad/listar";
+            System.out.println(idpro);
+            return "redirect:/proyecto/editar?id="+idpro;
         }
     }
 
 
     @PostMapping("/guardar")
-    public String guardar(Actividad actividad, RedirectAttributes ra){
+    public String guardar(Actividad actividad, RedirectAttributes ra,@RequestParam("idact") int idact, @RequestParam("idpro") int idpro) {
 
-        Actividad actividad1=actividad;
-        Optional<Actividad> actividadOptional= actividadRepository.findById(actividad.getIdactividad());
-        if(actividadOptional.isPresent()){
-            ra.addFlashAttribute("msgCreate","Actividad creado exitosamente");
-        }else {
-            ra.addFlashAttribute("msgEdit","a+Actividad actualizada exitosamente");
+        if(actividad.getIdactividad()==0){
+            ra.addFlashAttribute("msg", "Actividad creada exitosamente");
+        }else{
+            ra.addFlashAttribute("msg", "Actividad actualizada exitosamente");
         }
-
         actividadRepository.save(actividad);
-        return "redirect:/actividad/listar";
+        return "redirect:/proyecto/editar?id="+idpro;
 
     }
-
+    @GetMapping("/enviar")
+    public String editar(Model model, @RequestParam("idpro") int idpro) {
+            return "redirect:/proyecto/editar?id="+idpro;
+    }
 }

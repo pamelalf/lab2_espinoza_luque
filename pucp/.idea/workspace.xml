@@ -30,14 +30,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1897a384-087e-4978-9c62-9c5b9b13988a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Controller/ProyectoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Entity/Proyecto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Repository/ProyectoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/editar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/lista.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/nuevo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pucp/Controller/ActividadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Controller/ActividadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pucp/Controller/ProyectoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Controller/ProyectoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pucp/Entity/Actividad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Entity/Actividad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pucp/Entity/Proyecto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Entity/Proyecto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pucp/Repository/ActividadRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Repository/ActividadRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pucp/Repository/ProyectoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pucp/Repository/ProyectoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/actividades/lista.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/actividades/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/proyecto/actividades/nuevo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/editarProyecto.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/listaProyectos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/nuevoProyecto.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/editar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/proyecto/proyecto/lista.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pucp/Controller/ActividadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pucp/Controller/ActividadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pucp/Controller/ProyectoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pucp/Controller/ProyectoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pucp/Entity/Actividad.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pucp/Entity/Actividad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pucp/Entity/Proyecto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pucp/Entity/Proyecto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/pucp/Repository/ActividadRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/pucp/Repository/ActividadRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/actividades/lista.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/actividades/nuevo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/proyecto/actividades/nuevo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/editarProyecto.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/listaProyectos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/nuevoProyecto.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/proyecto/editar.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/proyecto/proyecto/editar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/proyecto/proyecto/lista.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/proyecto/proyecto/lista.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,10 +266,11 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1618880792148" />
-    <state x="446" y="25" key="#com.intellij.ide.util.MemberChooser" timestamp="1618964707535">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="476" y="27" key="#com.intellij.ide.util.MemberChooser" timestamp="1618974167086">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="446" y="25" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1618964707535" />
+    <state x="476" y="27" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1618974167086" />
     <state x="370" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618965944660">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -264,38 +283,46 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1618962930728" />
-    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1618964241933">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.0.bottom" timestamp="1618975349839">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1618964241933" />
-    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1618964241932">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618975349839" />
+    <state width="1323" height="230" key="GridCell.Tab.0.center" timestamp="1618975349838">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1618964241932" />
-    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1618964241932">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1618975349838" />
+    <state width="1323" height="230" key="GridCell.Tab.0.left" timestamp="1618975349838">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1618964241932" />
-    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1618964241933">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1618975349838" />
+    <state width="1323" height="230" key="GridCell.Tab.0.right" timestamp="1618975349839">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1618964241933" />
-    <state width="1237" height="163" key="GridCell.Tab.1.bottom" timestamp="1618964241933">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1618975349839" />
+    <state width="1323" height="230" key="GridCell.Tab.1.bottom" timestamp="1618975349841">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1618964241933" />
-    <state width="1237" height="163" key="GridCell.Tab.1.center" timestamp="1618964241933">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618975349841" />
+    <state width="1323" height="230" key="GridCell.Tab.1.center" timestamp="1618975349840">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1618964241933" />
-    <state width="1237" height="163" key="GridCell.Tab.1.left" timestamp="1618964241933">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1618975349840" />
+    <state width="1323" height="230" key="GridCell.Tab.1.left" timestamp="1618975349840">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1618964241933" />
-    <state width="1237" height="163" key="GridCell.Tab.1.right" timestamp="1618964241933">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1323" height="230" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1618975349840" />
+    <state width="1323" height="230" key="GridCell.Tab.1.right" timestamp="1618975349840">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="163" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1618964241933" />
+    <state width="1323" height="230" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1618975349840" />
     <state width="1237" height="285" key="GridCell.Tab.2.bottom" timestamp="1618964228559">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -332,6 +359,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="367" y="54" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.680@0.0.1280.680" timestamp="1618880551232" />
+    <state x="383" y="121" key="refactoring.ChangeSignatureDialog" timestamp="1618971709104">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="383" y="121" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1618971709104" />
     <state x="297" y="151" key="run.anything.popup" timestamp="1618881359135">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

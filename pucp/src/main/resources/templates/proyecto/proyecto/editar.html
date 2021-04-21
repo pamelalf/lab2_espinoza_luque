@@ -17,7 +17,7 @@
         <a class="navbar-brand" href="/area/listar">Areas</a>
     </div>
 </nav>
-<h2>Proyecto</h2>
+<h2>Editar Proyecto</h2>
 
 <form method="post" th:action="@{/proyecto/guardar}" th:object="${proyecto}">
     <div class="form-group">
@@ -37,15 +37,40 @@
                 th:text="${us.getCorreo()}"
         ></option>
     </select>
-
-
-
     <div class="form-group mt-4">
         <input class="btn btn-primary" type="submit" value="Editar">
         <a class="btn btn-danger" th:href="@{/proyecto/listar}">Regresar</a>
     </div>
 </form>
 
+<label>Progreso del proyecto</label>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" th:style="'width : '+${porcentaje}+'% ;'" th:attr="aria-valuenow=${porcentaje}" th:text="${porcentaje} + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
 
+<h2>Lista de Actividades del Proyecto</h2>
+<a class="btn btn-primary mt-4 mb-4" href="/actividad/agregar">Nueva Actividad</a>
+<table class="table table-sm">
+    <tr>
+        <th>#</th>
+        <th>Nombre de la Actividad </th>
+        <th>Usuario Responsable</th>
+        <th>Peso</th>
+        <th>Estado</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="act, info : ${listaAct}">
+        <td th:text="${info.index +1}"></td>
+        <td  th:text="${act.nombreactividad}"></td>
+        <td th:text="${act.usuario_owner}"></td>
+        <td th:text="${act.peso}"></td>
+        <td th:if="${act.estado}">Finalizado</td>
+        <td th:if="${!act.estado}">Pendiente</td>
+        <td><a class="btn btn-info" th:href="@{'/actividad/editar?id='+ ${act.getIdactividad()}}">Editar</a></td>
+
+        <td><a class="btn btn-danger" th:href="@{'/actividad/borrar?id='+ ${act.getIdactividad()}}">Borrar</a></td>
+    </tr>
+</table>
 </body>
 </html>

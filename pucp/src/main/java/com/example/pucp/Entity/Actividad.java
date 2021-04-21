@@ -13,13 +13,22 @@ public class Actividad {
 
     private String nombreactividad;
     private String descripcion;
-    @Column(nullable = false)
+    @Column(name="idproyecto",nullable = false)
     private int idproyecto;
     @Column(nullable = false)
     private String usuario_owner;
     private double peso;
     private boolean estado;
 
+
+
+    public int getIdproyecto() {
+        return idproyecto;
+    }
+
+    public void setIdproyecto(int idproyecto) {
+        this.idproyecto = idproyecto;
+    }
 
     public int getIdactividad() {
         return idactividad;

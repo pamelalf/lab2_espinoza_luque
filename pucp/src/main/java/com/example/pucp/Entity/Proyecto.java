@@ -16,9 +16,11 @@ public class Proyecto {
     public int getIdproyecto() {
         return idproyecto;
     }
+
     public void setIdproyecto(int idproyecto) {
         this.idproyecto = idproyecto;
     }
+
     public String getNombreproyecto() {
         return nombreproyecto;
     }

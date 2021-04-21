@@ -24,13 +24,6 @@ public class ActividadController {
     @Autowired
     UsuarioRepository usuarioRepository;
 
-    @GetMapping("/listar")
-    public String lista(Model model){
-        model.addAttribute("listaAc", actividadRepository.findAll());
-
-        return "proyecto/actividades/lista";
-    }
-
     @GetMapping("/agregar")
     public String nuevo(Model model){
         model.addAttribute("listaActividades",actividadRepository.findAll());
@@ -50,10 +43,10 @@ public class ActividadController {
             System.out.println(actividad.getNombreactividad());
             model.addAttribute("listaUsuarios",usuarioList);
             model.addAttribute("actividad",actividadOptional.get().getIdactividad());
-
             return "proyecto/actividades/editar";
+
         }else{
-            return "redirect:/actividad/listar";
+            return "redirect:/proyecto/listar";
         }
     }
 
@@ -64,13 +57,13 @@ public class ActividadController {
 
         Optional<Actividad> actividadOptional= actividadRepository.findById(actividad.getIdactividad());
         if(actividadOptional.isPresent()){
-            ra.addFlashAttribute("msgCreate","Actividad creado exitosamente");
+            ra.addFlashAttribute("msgCreate","Actividad creada exitosamente");
         }else {
             ra.addFlashAttribute("msgEdit","a+Actividad actualizada exitosamente");
         }
 
         actividadRepository.save(actividad);
-        return "redirect:/actividad/listar";
+        return "redirect:/proyecto/listar";
 
     }
 

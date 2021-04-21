@@ -1,7 +1,9 @@
 package com.example.pucp.Controller;
 
+import com.example.pucp.Entity.Actividad;
 import com.example.pucp.Entity.Proyecto;
 import com.example.pucp.Entity.Usuario;
+import com.example.pucp.Repository.ActividadRepository;
 import com.example.pucp.Repository.AreaRepository;
 import com.example.pucp.Repository.ProyectoRepository;
 import com.example.pucp.Repository.UsuarioRepository;
@@ -17,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 import java.util.Optional;
 
+import static java.lang.Math.round;
+
 @Controller
 @RequestMapping("/proyecto")
 public class ProyectoController {
@@ -26,46 +30,64 @@ public class ProyectoController {
     @Autowired
     ProyectoRepository proyectoRepository;
 
-    @GetMapping("/listar")
-    public String listaRepo(Model model){
+    @Autowired
+    ActividadRepository actividadRepository;
 
-        model.addAttribute("listaP",proyectoRepository.findAll());
+    @GetMapping("/listar")
+    public String listaRepo(Model model) {
+
+        model.addAttribute("listaP", proyectoRepository.findAll());
         return "proyecto/proyecto/lista";
     }
-    @GetMapping("/agregar")
-    public String agregarProyec(Model model){
 
-        model.addAttribute("listaUser",usuarioRepository.findAll());
-        model.addAttribute("listaP",proyectoRepository.findAll());
+    @GetMapping("/agregar")
+    public String agregarProyec(Model model) {
+
+        model.addAttribute("listaUser", usuarioRepository.findAll());
+        model.addAttribute("listaP", proyectoRepository.findAll());
         return "proyecto/proyecto/nuevo";
     }
 
 
     @GetMapping("/editar")
-    public String editarUser(Model model, @RequestParam("id") int id){
-        Optional<Proyecto> proyectoOptional= proyectoRepository.findById(id);
-        if(proyectoOptional.isPresent()){
-            model.addAttribute("listaUsuarioa",usuarioRepository.findAll());
-            model.addAttribute("proyecto",proyectoOptional.get());
+    public String editarUser(Model model, @RequestParam("id") int id) {
+        double porcentaje = 0;
+        double suma = 0;
+        double suma_if = 0;
+        Optional<Proyecto> proyectoOptional = proyectoRepository.findById(id);
+        if (proyectoOptional.isPresent()) {
+            List<Actividad> listaAct = actividadRepository.findporidproyectoq(id);
+            model.addAttribute("listaUsuarioa", usuarioRepository.findAll());
+            model.addAttribute("listaAct", listaAct);
+            model.addAttribute("proyecto", proyectoOptional.get());
+            for (Actividad actividad : listaAct) {
+                suma = (suma + actividad.getPeso());
+                if (actividad.isEstado()) {
+                    suma_if = suma_if + actividad.getPeso();
 
+                }
+            }
+            porcentaje = (suma_if / suma) * 100;
+            System.out.println(porcentaje);
+            model.addAttribute("porcentaje", porcentaje);
             return "proyecto/proyecto/editar";
-        }else{
+        } else {
             return "redirect:/proyecto/listar";
         }
 
     }
 
     @PostMapping("/guardar")
-    public String guardarP(Proyecto proyecto, RedirectAttributes ra){
-        Optional<Proyecto> proyectoOptional= proyectoRepository.findById(proyecto.getIdproyecto());
-        if(proyectoOptional.isPresent()){
-            ra.addFlashAttribute("msg","Proyecto creado exitosamente");
-        }else {
-            ra.addFlashAttribute("msg","Proyecto actualizado exitosamente");
+    public String guardarP(Proyecto proyecto, RedirectAttributes ra) {
+        Optional<Proyecto> proyectoOptional = proyectoRepository.findById(proyecto.getIdproyecto());
+        if (proyectoOptional.isPresent()) {
+            ra.addFlashAttribute("msg", "Proyecto creado exitosamente");
+        } else {
+            ra.addFlashAttribute("msg", "Proyecto actualizado exitosamente");
         }
         proyectoRepository.save(proyecto);
 
-        return "redirect:/usuario/listar";
+        return "redirect:/proyecto/listar";
     }
 
     @GetMapping("/borrar")

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</head>
+<body class="container">
+<div th:if="${msgCreate != null}" th:text="${msgCreate}" class="alert alert-success" role="alert"></div>
+<div th:if="${msgEdit != null}" th:text="${msgEdit}" class="alert alert-warning" role="alert"></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse">
+        <a class="navbar-brand" href="/proyecto/listar">Proyectos</a>
+        <a class="navbar-brand" href="/usuario/listar">Usuarios</a>
+        <a class="navbar-brand" href="/area/listar">Areas</a>
+    </div>
+</nav>
+<h2>Lista de Usuarios</h2>
+<a class="btn btn-primary mt-4 mb-4" href="/usuario/agregar">Nuevo Usuario</a>
+<table class="table table-sm">
+    <tr>
+        <th>#</th>
+        <th>Correo </th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="user, info : ${listaUser}">
+        <td th:text="${info.index +1}"></td>
+        <td  th:text="${user.correo}"></td>
+        <td th:text="${user.getNombres()}"></td>
+        <td th:text="${user.getApellidos()}"></td>
+        <td><a class="btn btn-info" th:href="@{'/usuario/editar?id='+ ${user.getCorreo()}}">Editar</a></td>
+
+        <td><a class="btn btn-danger" th:href="@{'/usuario/borrar?id='+ ${user.getCorreo()}}">Borrar</a></td>
+    </tr>
+</table>
+</body>
+</html>
+

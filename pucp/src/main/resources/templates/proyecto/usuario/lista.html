@@ -9,8 +9,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 </head>
 <body class="container">
-<div th:if="${msgCreate != null}" th:text="${msgCreate}" class="alert alert-success" role="alert"></div>
-<div th:if="${msgEdit != null}" th:text="${msgEdit}" class="alert alert-warning" role="alert"></div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse">
         <a class="navbar-brand" href="/proyecto/listar">Proyectos</a>
@@ -20,6 +18,7 @@
 </nav>
 <h2>Lista de Usuarios</h2>
 <a class="btn btn-primary mt-4 mb-4" href="/usuario/agregar">Nuevo Usuario</a>
+<div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
 <table class="table table-sm">
     <tr>
         <th>#</th>

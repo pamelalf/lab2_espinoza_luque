@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +41,7 @@ public class ActividadController {
     @GetMapping("/editar")
     public String editar(Model model, @RequestParam("id") int id){
         System.out.println("El id es : " + id);
+
         Optional<Actividad> actividadOptional=actividadRepository.findById(id);
         if(actividadOptional.isPresent()){
             Actividad actividad= actividadOptional.get();
@@ -53,12 +55,19 @@ public class ActividadController {
         }else{
             return "redirect:/actividad/listar";
         }
-
-
     }
-    @PostMapping("/guardar")
-    public String guardar( Actividad actividad){
 
+
+    @PostMapping("/guardar")
+    public String guardar(Actividad actividad, RedirectAttributes ra){
+
+        Actividad actividad1=actividad;
+        Optional<Actividad> actividadOptional= actividadRepository.findById(actividad.getIdactividad());
+        if(actividadOptional.isPresent()){
+            ra.addFlashAttribute("msgCreate","Actividad creado exitosamente");
+        }else {
+            ra.addFlashAttribute("msgEdit","a+Actividad actualizada exitosamente");
+        }
 
         actividadRepository.save(actividad);
         return "redirect:/actividad/listar";

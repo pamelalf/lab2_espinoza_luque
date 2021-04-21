@@ -1,17 +1,18 @@
 package com.example.pucp.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "actividades")
 public class Actividad {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idactividad", nullable = false)
     private int idactividad;
+
     private String nombreactividad;
     private String descripcion;
-    private int idproyecto;
+
     private String usuario_owner;
     private double peso;
     private boolean estado;
@@ -41,13 +42,7 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public int getIdproyecto() {
-        return idproyecto;
-    }
 
-    public void setIdproyecto(int idproyecto) {
-        this.idproyecto = idproyecto;
-    }
 
     public String getUsuario_owner() {
         return usuario_owner;

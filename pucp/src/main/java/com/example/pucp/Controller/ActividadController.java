@@ -46,10 +46,10 @@ public class ActividadController {
         if(actividadOptional.isPresent()){
             Actividad actividad= actividadOptional.get();
             System.out.println(actividad.getNombreactividad());
-            List<Usuario> usuarioList=usuarioRepository.findAll();
+            List<Usuario> usuarioList = usuarioRepository.findAll();
             System.out.println(actividad.getNombreactividad());
-            model.addAttribute("listaUsuarios",usuarioRepository.findAll());
-            model.addAttribute("actividad",actividadOptional.get());
+            model.addAttribute("listaUsuarios",usuarioList);
+            model.addAttribute("actividad",actividadOptional.get().getIdactividad());
 
             return "proyecto/actividades/editar";
         }else{
@@ -61,7 +61,7 @@ public class ActividadController {
     @PostMapping("/guardar")
     public String guardar(Actividad actividad, RedirectAttributes ra){
 
-        Actividad actividad1=actividad;
+
         Optional<Actividad> actividadOptional= actividadRepository.findById(actividad.getIdactividad());
         if(actividadOptional.isPresent()){
             ra.addFlashAttribute("msgCreate","Actividad creado exitosamente");

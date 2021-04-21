@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "actividades")
 public class Actividad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idactividad", nullable = false)
@@ -12,7 +13,9 @@ public class Actividad {
 
     private String nombreactividad;
     private String descripcion;
-
+    @Column(nullable = false)
+    private int idproyecto;
+    @Column(nullable = false)
     private String usuario_owner;
     private double peso;
     private boolean estado;
@@ -41,8 +44,6 @@ public class Actividad {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-
 
     public String getUsuario_owner() {
         return usuario_owner;

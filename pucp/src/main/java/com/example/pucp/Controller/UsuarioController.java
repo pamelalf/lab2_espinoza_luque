@@ -55,21 +55,28 @@ public class UsuarioController {
     public String guardarUser(Usuario usuario,  RedirectAttributes ra){
        Optional<Usuario> usuarioOptional= usuarioRepository.findById(usuario.getCorreo());
        if(usuarioOptional.isPresent()){
-           ra.addFlashAttribute("msgCreate","Usuario creado exitosamente");
+           ra.addFlashAttribute("msg","Usuario creado exitosamente");
        }else {
-           ra.addFlashAttribute("msgEdit","Usuario actualizado exitosamente");
+           ra.addFlashAttribute("msg","Usuario actualizado exitosamente");
        }
        usuarioRepository.save(usuario);
 
        return "redirect:/usuario/listar";
    }
 
-   @GetMapping("/borrar")
-    public String borrar (Usuario usuario){
-       usuarioRepository.delete(usuario);
-       return "redirect:/usuario/listar";
-   }
+    @GetMapping("/borrar")
+    public String borrar(Model model, @RequestParam("id") String id,
+                         RedirectAttributes attr) {
 
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
+
+        if (usuarioOptional.isPresent()) {
+            usuarioRepository.deleteById(id);
+            attr.addFlashAttribute("msg", "Area eliminada exitosamente");
+        }
+        return "redirect:/area/listar";
+
+    }
 
 
 

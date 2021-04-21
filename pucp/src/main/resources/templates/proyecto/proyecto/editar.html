@@ -67,9 +67,9 @@
         <td th:text="${act.peso}"></td>
         <td th:if="${act.estado}">Finalizado</td>
         <td th:if="${!act.estado}">Pendiente</td>
-        <td><a class="btn btn-info" th:href="@{'/actividad/editar?id='+ ${act.getIdactividad()}}">Editar</a></td>
+        <td><a class="btn btn-info" th:href="@{'/actividad/editar?idact='+ ${act.getIdactividad()}+'&idpro='+ ${proyecto.idproyecto}}">Editar</a></td>
 
-        <td><a class="btn btn-danger" th:href="@{'/actividad/borrar?id='+ ${act.getIdactividad()}}">Borrar</a></td>
+        <td><a class="btn btn-danger" th:href="@{'/actividad/borrar?idact='+ ${act.getIdactividad()}+'&idpro='+ ${proyecto.idproyecto}}">Borrar</a></td>
     </tr>
 </table>
 </body>
